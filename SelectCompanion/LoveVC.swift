@@ -15,7 +15,6 @@ class LoveVC: UIViewController {
     @IBOutlet weak var ageSL: UISlider!
     @IBOutlet weak var ageLB: UILabel!
     @IBOutlet weak var youSC: UISegmentedControl!
-    @IBOutlet weak var showLB: UILabel!
     @IBOutlet weak var isyouBT: UIButton!
     @IBOutlet weak var heartSW: UISwitch!
     
@@ -24,7 +23,6 @@ class LoveVC: UIViewController {
     }
     
     @IBAction func isyouBT(_ sender: AnyObject) {
-        showLB.text = starTF.text
         let star = starTF.text!
         let gender = genderSC.selectedSegmentIndex
         let heart = heartSW.isOn
@@ -50,6 +48,9 @@ class LoveVC: UIViewController {
         super.viewDidLoad()
         
         isyouBT.setTitleColor(UIColor.red, for: .highlighted)
+        
+        genderSC.tintColor = UIColor.red
+        youSC.tintColor = UIColor.red
         
         // 增加一個觸控事件
         let tap = UITapGestureRecognizer(target: self, action: #selector(LoveVC.hideKeyboard(_:)))
